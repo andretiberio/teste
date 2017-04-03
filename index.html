@@ -23,14 +23,16 @@
 			</div>
 		</section>
 
-		<section class="container">
+		<section class="container user-search">
 			<h3>Busque o usuário aqui:</h3>      
-			<input id="input" type="text" class="form-control" placeholder="Digite um usuário..." data-provide="typeahead">
+			<input id="input" type="text" class="form-control typeahead" placeholder="Digite um usuário..." data-provide="typeahead">
 		</section>
+
+		<section class="container user-data"></section>
 
 	</body>
 	<script>
-		var $input = $(".form-control");
+		var $input = $(".typeahead");
 
 		function _normalizeData(data) {
 			data.forEach(function(element) {
