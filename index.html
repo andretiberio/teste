@@ -10,7 +10,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js""></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/pt-br.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lscache/1.1.0/lscache.min.js"></script>
 </head>
 <body>
 
@@ -19,8 +19,8 @@
 			<div class="row well well-lg">
 				<div class="col-sm-12">
 
-					<h1 class="">andretiberio.github.io</h1>
-					<h2 class="">Solução para o desafio de programação Kuau</h2>
+					<h1 class="text-center">andretiberio.github.io</h1>
+					<h2 class="text-center">Solução para o desafio de programação Kuau</h2>
 				</div>
 			</div>
 		</section>
@@ -55,44 +55,44 @@
 			fitToElement: true,
 		});
 		$input.change(function() {
-  var current = $input.typeahead("getActive");
-  if (current) {
+			var current = $input.typeahead("getActive");
+			if (current) {
     // Some item from your model is active!
     if (current.name == $input.val()) {
-     $.get('https://api.github.com/users/' + current.name, function (data) {
-      var $userData = $('.user-data')
-      $userData.empty();
+    	$.get('https://api.github.com/users/' + current.name, function (data) {
+    		var $userData = $('.user-data')
+    		$userData.empty();
 
-      var followers = data.followers;
-      var following = data.following;
-      var email = data.email;
-      var avatarUrl = data.avatar_url;
+    		var followers = data.followers;
+    		var following = data.following;
+    		var email = data.email;
+    		var avatarUrl = data.avatar_url;
 
-      var createdAt = data.created_at;
-      var structuredCreatedAt = moment(createdAt).format('LLLL');
+    		var createdAt = data.created_at;
+    		var structuredCreatedAt = moment(createdAt).format('LLLL');
 
-      var htmlUrl = data.html_url;
+    		var htmlUrl = data.html_url;
 
-    var html = '';
-    html += '<a target="_blank" href="' + htmlUrl + '">';
-    html += '<img width="200" height="200" class="img-circle" src="' + avatarUrl + '">';
-    html += '<p>' + following + '</p>';
-    html += '<p>' + followers + '</p>';
-    html += '<p>' + email + '</p>';
-    html += '<p>' + structuredCreatedAt + '</p>';
-    html += '</a>';
+    		var html = '';
+    		html += '<a target="_blank" href="' + htmlUrl + '">';
+    		html += '<img width="200" height="200" class="img-circle" src="' + avatarUrl + '">';
+    		html += '<p>' + following + '</p>';
+    		html += '<p>' + followers + '</p>';
+    		html += '<p>' + email + '</p>';
+    		html += '<p>' + structuredCreatedAt + '</p>';
+    		html += '</a>';
 
-    $userData.html(html);
+    		$userData.html(html);
 
-     });
+    	});
       // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
-    } else {
+  } else {
       // This means it is only a partial match, you can either add a new item
       // or take the active if you don't want new items
-    }
-  } else {
-    // Nothing is active so it is a new value (or maybe empty value)
   }
+} else {
+    // Nothing is active so it is a new value (or maybe empty value)
+}
 });
 </script>
 </html>
