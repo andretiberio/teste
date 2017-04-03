@@ -63,16 +63,19 @@
     		var followers = data.followers;
     		var following = data.following;
     		var email = data.email;
-    		var avatar_url = data.avatar_url;
-    		var created_at = data.created_at;
-    		var html_url = data.html_url;
+    		var avatarUrl = data.avatar_url;
+
+    		var createdAt = data.created_at;
+    		var structuredCreatedAt = moment(createdAt).format('LLLL');
+
+    		var htmlUrl = data.html_url;
 
     		$("<p />", { text: followers }).appendTo('.user-data');
     		$("<p />", { text: following }).appendTo('.user-data');
     		$("<p />", { text: email }).appendTo('.user-data');
-    		$("<p />", { text: avatar_url }).appendTo('.user-data');
-    		$("<p />", { text: created_at }).appendTo('.user-data');
-    		$("<p />", { text: html_url }).appendTo('.user-data');
+    		$("<p />", { text: avatarUrl }).appendTo('.user-data');
+    		$("<p />", { text: structuredCreatedAt }).appendTo('.user-data');
+    		$("<p />", { text: htmlUrl }).appendTo('.user-data');
 
     	});
       // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
