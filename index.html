@@ -93,7 +93,11 @@
 			},
 			minLength: 3,
 			fitToElement: true,
-			suggestion: Handlebars.compile('<div><strong>{{login}}</strong> – {{id}}</div>')
+			templates: {
+				suggestion: function (data) {
+					return '<p><strong>' + data.login + '</strong> - ' + data.id + '</p>';
+				}
+			}
 		});
 		$input.change(function() {
 			var current = $input.typeahead("getActive");
