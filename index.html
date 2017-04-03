@@ -62,7 +62,7 @@
 					<h1>Buscador de usuários do Github</h1>
 					<p class="lead"><small>Esta é uma ferramenta que busca usuários através da API do Github</small></p>			
 					<br>
-					<div class="container user-data"></div>
+					<div class="panel panel-default user-data"></div>
 					<form class="col-lg-12">
 						<div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
 						<input id="input" type="text" class="center-block form-control input-lg user-search typeahead" title="Digite o nome de usuário." placeholder="Digite aqui o nome de usuário" data-provide="typeahead">
@@ -93,12 +93,12 @@
 			},
 			minLength: 3,
 			fitToElement: true,
-			templates: {
-				suggestion: function (data) {
-					console.log(data)
-					return '<p><strong>' + data.login + '</strong> - ' + data.id + '</p>';
-				}
-			}
+			// templates: {
+			// 	suggestion: function (data) {
+			// 		console.log(data)
+			// 		return '<p><strong>' + data.login + '</strong> - ' + data.id + '</p>';
+			// 	}
+			// }
 		});
 		$input.change(function() {
 			var current = $input.typeahead("getActive");
@@ -109,6 +109,7 @@
     		var $userData = $('.user-data')
     		$userData.empty();
 
+    		var login = data.login;
     		var followers = data.followers;
     		var following = data.following;
     		var email = data.email;
@@ -120,13 +121,17 @@
     		var htmlUrl = data.html_url;
 
     		var html = '';
-    		html += '<a target="_blank" href="' + htmlUrl + '">';
+
+    		html += '<div class="panel panel-default"><div class="panel-heading">'
+    		html += '<h3 class="panel-title">'+login+'</h3></div>'
+    		html += '<div class="panel-body">'
+    		html += '<a target="_blank" href="' + htmlUrl + '"></a>';
     		html += '<img width="200" height="200" class="img-circle" src="' + avatarUrl + '">';
     		html += '<p>' + following + '</p>';
     		html += '<p>' + followers + '</p>';
     		html += '<p>' + email + '</p>';
     		html += '<p>' + structuredCreatedAt + '</p>';
-    		html += '</a>';
+    		html += '</div></div>';
 
     		$userData.html(html);
 
