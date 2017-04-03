@@ -93,6 +93,7 @@
 			},
 			minLength: 3,
 			fitToElement: true,
+			suggestion: Handlebars.compile('<div><strong>{{login}}</strong> – {{id}}</div>')
 		});
 		$input.change(function() {
 			var current = $input.typeahead("getActive");
