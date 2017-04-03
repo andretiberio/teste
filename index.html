@@ -1,34 +1,22 @@
 <!DOCTYPE html>
-<html ng-app='app'>
+<html lang="en-us">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-	<script>
-		var app = angular.module('app', []);
-
-		app.controller('MainCtrl', function($http) {
-			var vm = this;
-			vm.data = false;
-			vm.fetchData = function(user) {
-				vm.loading = true;
-				$http.get('https://api.github.com/users/' + user.name).then(function(res) {
-					vm.data = true;
-					vm.name = res.data.name || 'Not Found';
-					vm.location = res.data.location || 'Not Found';
-					vm.loading = false;
-				});
-			}
-		});
-	</script>
+	<meta charset="UTF-8">
+	<title>Exercício de avaliação técnica Kuau</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/assets/css/style.css?v=49ca8268a9a300b6ceb046e5c58e14297c94a3f9">
 </head>
-<body ng-controller='MainCtrl as vm'>
-	<label for="enter">Enter a username</label>
-	<input type="text" ng-model="user.name" name="enter">
-	<button ng-click="vm.fetchData(user)">Go!</button>
-	<h4 ng-if="vm.loading === true">Loading...</h4>
-	<h3 ng-hide="vm.data === false">{{vm.name}} --- {{vm.location}}</h3>
-</body>
-</html>
+<body>
+	<section class="page-header">
+		<h1 class="project-name">andretiberio.github.io</h1>
+		<h2 class="project-tagline">Solução proposta ao exercício de avaliação técnica Kuau</h2>
+	</section>
+
+	<section class="main-content">
+		<input type="text" class="form-control" placeholder="Digite um usuário...">
+
+
+	</body>
+	</html>
