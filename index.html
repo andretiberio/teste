@@ -55,37 +55,44 @@
 			fitToElement: true,
 		});
 		$input.change(function() {
-			var current = $input.typeahead("getActive");
-			if (current) {
+  var current = $input.typeahead("getActive");
+  if (current) {
     // Some item from your model is active!
     if (current.name == $input.val()) {
-    	$.get('https://api.github.com/users/' + current.name, function (data) {
-    		var followers = data.followers;
-    		var following = data.following;
-    		var email = data.email;
-    		var avatarUrl = data.avatar_url;
+     $.get('https://api.github.com/users/' + current.name, function (data) {
+      var $userData = $('.user-data')
+      $userData.empty();
 
-    		var createdAt = data.created_at;
-    		var structuredCreatedAt = moment(createdAt).format('LLLL');
+      var followers = data.followers;
+      var following = data.following;
+      var email = data.email;
+      var avatarUrl = data.avatar_url;
 
-    		var htmlUrl = data.html_url;
+      var createdAt = data.created_at;
+      var structuredCreatedAt = moment(createdAt).format('LLLL');
 
-    		$("<p />", { text: followers }).appendTo('.user-data');
-    		$("<p />", { text: following }).appendTo('.user-data');
-    		$("<p />", { text: email }).appendTo('.user-data');
-    		$("<p />", { text: avatarUrl }).appendTo('.user-data');
-    		$("<p />", { text: structuredCreatedAt }).appendTo('.user-data');
-    		$("<p />", { text: htmlUrl }).appendTo('.user-data');
+      var htmlUrl = data.html_url;
 
-    	});
+    var html = '';
+    html += '<a target="_blank" href="' + htmlUrl + '">';
+    html += '<img width="200" height="200" class="img-circle" src="' + avatarUrl + '">';
+    html += '<p>' + following + '</p>';
+    html += '<p>' + followers + '</p>';
+    html += '<p>' + email + '</p>';
+    html += '<p>' + structuredCreatedAt + '</p>';
+    html += '</a>';
+
+    $userData.html(html);
+
+     });
       // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
-  } else {
+    } else {
       // This means it is only a partial match, you can either add a new item
       // or take the active if you don't want new items
-  }
-} else {
+    }
+  } else {
     // Nothing is active so it is a new value (or maybe empty value)
-}
+  }
 });
 </script>
 </html>
