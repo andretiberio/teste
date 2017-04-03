@@ -50,6 +50,8 @@
 			margin-top:7%;
 		}
 
+
+
 	</style>
 </head>
 <body>
@@ -62,46 +64,46 @@
 					<h1>Buscador de usuários do Github</h1>
 					<p class="lead"><small>Esta é uma ferramenta que busca usuários através da API do Github</small></p>			
 					<br>
-					<div class="panel panel-default user-data"></div>
+					<div class="user-data"></div>
 
 
-<div class="col-md-4 col-sm-6">
-    	<div class="panel panel-default">
-           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Profiles</h4></div>
-   			<div class="panel-body">
-              Check out some of our member profiles..
-              <hr>
-              <div class="well well-sm">
-                <div class="media">
-                    <a class="thumbnail pull-left" href="#">
-                        <img class="media-object" src="//placehold.it/80">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                		<p><span class="label label-info">10 photos</span> <span class="label label-primary">89 followers</span></p>
-                        <p>
-                           <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
-                           <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
-                        </p>
-                    </div>
-                </div>
-               </div>
-            </div>
-         </div> 
-    </div>
+					<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+							<div class="panel panel-default">
+								<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Profiles</h4></div>
+								<div class="panel-body">
+									Check out some of our member profiles..
+									<hr>
+									<div class="well well-sm">
+										<div class="media">
+											<a class="thumbnail pull-left" href="#">
+												<img class="media-object" src="//placehold.it/80">
+											</a>
+											<div class="media-body">
+												<h4 class="media-heading">John Doe</h4>
+												<p><span class="label label-info">10 photos</span> <span class="label label-primary">89 followers</span></p>
+												<p>
+													<a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
+													<a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
+												</p>
+											</div>
+										</div>
+										</div>
+							</div>
+						</div> 
+					</div>
 
 
 
-					
+
 					<form class="col-lg-12">
-						<div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
-						<input id="input" type="text" class="center-block form-control input-lg user-search typeahead" title="Digite o nome de usuário." placeholder="Digite aqui o nome de usuário" data-provide="typeahead">
-							<span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">Buscar</button></span>
+						<div class="input-group input-group-lg col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+								<input id="input" type="text" class="center-block form-control input-lg user-search typeahead" title="Digite o nome de usuário." placeholder="Digite aqui o nome de usuário" data-provide="typeahead">
+								<span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">Buscar</button></span>
+							</div>
 						</div>
 					</form>
 				</div>
-				</div>
-			</div>
+		</div>
 	</body>
 	<script>
 		var $input = $(".typeahead");
