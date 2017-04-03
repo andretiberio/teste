@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Exercício de Programação Kuau</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+	<title>Exercício de Programação Kuau</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
 </head>
 <body>
 
- <section class="jumbotron">
-      <div class="container">
-        <div class="row well well-lg">
-            <div class="col-md-6 col-md-offset-3 centerfy">
+	<section class="jumbotron">
+		<div class="container">
+			<div class="row well well-lg">
+				<div class="col-md-6 col-md-offset-3 centerfy">
 
-                <h1 class="">andretiberio.github.io</h1>
-                <h2 class="">Solução para o desafio de programação Kuau</h2>
-            </div>
-        </div>
-      </section>
-      
-<section class="container">
-  <h3>Busque o usuário aqui:</h3>      
-  <input type="text" class="form-control" placeholder="Digite um usuário..." data-provide="typeahead">
-</section>
+					<h1 class="">andretiberio.github.io</h1>
+					<h2 class="">Solução para o desafio de programação Kuau</h2>
+				</div>
+			</div>
+		</section>
 
-</body>
-</html>
+		<section class="container">
+			<h3>Busque o usuário aqui:</h3>      
+			<input id="input" type="text" class="form-control" placeholder="Digite um usuário..." data-provide="typeahead">
+		</section>
+
+	</body>
+	<script>
+		var $input = $(".form-control");
+
+		function _normalizeData(data) {
+			data.forEach(function(element) {
+				element.name = element.login;
+			});
+			return data;
+		}
+
+		$input.typeahead(
+		{
+			source: function (query, process) {
+				return $.get('https://api.github.com/search/users', { q: query }, function (data) {
+					var normalizedData = _normalizeData(data.items)
+					return process(normalizedData);
+				});
+			}
+		});
+	</script>
+	</html>
