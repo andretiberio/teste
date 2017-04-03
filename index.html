@@ -95,6 +95,7 @@
 			fitToElement: true,
 			templates: {
 				suggestion: function (data) {
+					var normalizedData = _normalizeData(data.items)
 					return '<p><strong>' + data.login + '</strong> - ' + data.id + '</p>';
 				}
 			}
