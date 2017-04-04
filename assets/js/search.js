@@ -11,9 +11,17 @@ $input.typeahead(
 {
  source: function (query, process) {
     return $.get('https://api.github.com/search/users', { q: query }, function (data) {
-       var normalizedData = _normalizeData(data.items)
-       return process(normalizedData);
-   });
+       var resultLocalStorage = lscache.get(query);
+     if (resultLocalStorage === null) {
+      return $.get('https://api.github.com/search/users', { q: query }, function (data) {
+          var normalizedData = _normalizeData(data.items);
+          lscache.set(query, normalizedData, 5);
+          return process(normalizedData); 
+      }
+     } else {
+      return process(resultLocalStorage);
+     }
+    });
 },
 minLength: 3,
 fitToElement: true,
