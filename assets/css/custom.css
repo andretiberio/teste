@@ -38,7 +38,7 @@ h1 {
 }
 
 .user-search .form-control {
-    border-radius: 6px !important;
+	border-radius: 6px !important;
 }
 
 .user-data .btn-lnk {
@@ -46,23 +46,23 @@ h1 {
 }
 
 .user-data .media-heading {
- margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 @media screen and (min-width: 950px) and (max-width: 1120px) { 
-h1 {
-	font-size:68px;
-}
+	h1 {
+		font-size:68px;
+	}
 }
 
 @media screen and (min-width: 520px) and (max-width: 949px) { 
-h1 {
-	font-size:52px;
-}
+	h1 {
+		font-size:52px;
+	}
 }
 
 @media screen and (max-width: 520px) { 
-h1 {
-	font-size:34px;
-}
+	h1 {
+		font-size:34px;
+	}
 }
