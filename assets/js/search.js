@@ -24,12 +24,6 @@ $input.typeahead(
  },
   minLength: 3,
   fitToElement: true,
-			// templates: {
-			// 	suggestion: function (data) {
-			// 		console.log(data)
-			// 		return '<p><strong>' + data.login + '</strong> - ' + data.id + '</p>';
-			// 	}
-			// }
 		});
 $input.change(function() {
    var current = $input.typeahead("getActive");
