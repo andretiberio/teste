@@ -10,8 +10,13 @@ h1 {
 	color:#DDCCEE;
 }
 
-.lead {
+.text {
 	color:#DDCCEE;
+}
+
+#githublink {
+	color:#0366d6;
+	text-decoration: underline;
 }
 
 .container-full {
