@@ -12,9 +12,9 @@ $input.typeahead(
     source: function (query, process) {
        var resultLocalStorage = lscache.get(query);
        if (resultLocalStorage === null) {
-          return $.get('https://api.github.com/search/users', { q: query }, function (data) {
+        return $.get('https://api.github.com/search/users', { q: query.toLowerCase() }, function (data) {
               var normalizedData = _normalizeData(data.items);
-              lscache.set(query, normalizedData, 5);
+              lscache.set(query.toLowerCase(), normalizedData, 5);
               return process(normalizedData); 
           });
       } else {
