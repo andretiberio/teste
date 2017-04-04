@@ -1,30 +1,28 @@
 var $input = $(".typeahead");
 
 function _normalizeData(data) {
- data.forEach(function(element) {
+   data.forEach(function(element) {
     element.name = element.login;
 });
- return data;
+   return data;
 }
 
 $input.typeahead(
 {
- source: function (query, process) {
-    return $.get('https://api.github.com/search/users', { q: query }, function (data) {
+    source: function (query, process) {
        var resultLocalStorage = lscache.get(query);
-     if (resultLocalStorage === null) {
-      return $.get('https://api.github.com/search/users', { q: query }, function (data) {
-          var normalizedData = _normalizeData(data.items);
-          lscache.set(query, normalizedData, 5);
-          return process(normalizedData); 
+       if (resultLocalStorage === null) {
+          return $.get('https://api.github.com/search/users', { q: query }, function (data) {
+              var normalizedData = _normalizeData(data.items);
+              lscache.set(query, normalizedData, 5);
+              return process(normalizedData); 
+          });
+      } else {
+          return process(resultLocalStorage);
       }
-     } else {
-      return process(resultLocalStorage);
-     }
-    });
-},
-minLength: 3,
-fitToElement: true,
+  },
+  minLength: 3,
+  fitToElement: true,
 			// templates: {
 			// 	suggestion: function (data) {
 			// 		console.log(data)
@@ -33,8 +31,8 @@ fitToElement: true,
 			// }
 		});
 $input.change(function() {
- var current = $input.typeahead("getActive");
- if (current) {
+   var current = $input.typeahead("getActive");
+   if (current) {
     // Some item from your model is active!
     if (current.name == $input.val()) {
     	$.get('https://api.github.com/users/' + current.name, function (data) {
