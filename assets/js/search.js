@@ -30,12 +30,12 @@ function createUserCard (data) {
   $userData.empty();
 
   var login = data.login;
-  var name = data.name;
-  var company = data.company;
-  var location = data.location;
+  var name = data.name || '';
+  var company = data.company || '';
+  var location = data.location || '';
   var followers = data.followers;
   var following = data.following;
-  var email = data.email;
+  var email = data.email || '';
   var avatarUrl = data.avatar_url;
   var htmlUrl = data.html_url;
 
