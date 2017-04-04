@@ -35,12 +35,12 @@ h1 {
 }
 
 .user-data .panel-heading {
- padding: 0;
- padding-left: 10px;
+ //padding: 0;
+ //padding-left: 10px;
 }
 
 .user-data .btn-lnk {
- color: blue;
+	margin-top:10pt;
 }
 
 .user-data .media-heading {
