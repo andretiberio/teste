@@ -10,17 +10,18 @@ function _normalizeData(data) {
 $input.typeahead(
 {
     source: function (query, process) {
-       var resultLocalStorage = lscache.get(query);
-       if (resultLocalStorage === null) {
-        return $.get('https://api.github.com/search/users', { q: query.toLowerCase() }, function (data) {
-              var normalizedData = _normalizeData(data.items);
-              lscache.set(query.toLowerCase(), normalizedData, 5);
-              return process(normalizedData); 
-          });
-      } else {
-          return process(resultLocalStorage);
-      }
-  },
+     var keyNameSpace = 'search-user';
+     var resultLocalStorage = lscache.get(keyNameSpace + query);
+     if (resultLocalStorage === null) {
+      return $.get('https://api.github.com/search/users', { q: query }, function (data) {
+          var normalizedData = _normalizeData(data.items);
+          lscache.set(keyNameSpace + query, normalizedData, 5);
+          return process(normalizedData); 
+      });
+     } else {
+      return process(resultLocalStorage);
+     }
+ },
   minLength: 3,
   fitToElement: true,
 			// templates: {
