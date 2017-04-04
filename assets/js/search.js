@@ -11,11 +11,11 @@ $input.typeahead(
 {
     source: function (query, process) {
        var keyNameSpace = 'search-users-';
-       var resultLocalStorage = lscache.get(keyNameSpace + query);
+       var resultLocalStorage = lscache.get(keyNameSpace + query.toLowerString());
        if (resultLocalStorage === null) {
           return $.get('https://api.github.com/search/users', { q: query }, function (data) {
               var normalizedData = _normalizeData(data.items);
-              lscache.set(keyNameSpace + query, normalizedData, 5);
+              lscache.set(keyNameSpace + query.toLowerString(), normalizedData, 5);
               return process(normalizedData); 
           });
       } else {
