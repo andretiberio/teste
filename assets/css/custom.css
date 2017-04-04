@@ -41,3 +41,7 @@ h1 {
 .user-data .media-heading {
  margin-bottom: 10px;
 }
+
+.user-search { 
+	border-radius: 3px;
+}
