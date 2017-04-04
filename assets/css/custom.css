@@ -34,3 +34,16 @@ h1 {
 .v-center {
 	margin-top:7%;
 }
+
+.user-data .panel-heading {
+ padding: 0;
+ padding-left: 10px;
+}
+
+.user-data .btn-lnk {
+ color: blue;
+}
+
+.user-data .media-heading {
+ margin-bottom: 10px;
+}

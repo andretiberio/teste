@@ -50,9 +50,9 @@ var $input = $(".typeahead");
 
     		var html = '';
 
-    		html += '<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4"><div class="panel panel-default" ><div class="panel-heading text-left" style="padding: 0px; padding-left: 10px"><a href="' + html_url + '" class="pull-right btn-lnk small" style="color:blue">Ver perfil no github.com</a> <h4 >' + login + '</h4></div>'
+    		html += '<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4"><div class="panel panel-default" ><div class="panel-heading text-left"><a href="' + html_url + '" class="pull-right btn-lnk small">Ver perfil no github.com</a> <h4 >' + login + '</h4></div>'
     		html += '<div class="panel-body text-primary"><div class="well well-sm"><div class="media"><a class="pull-left" href='+avatarUrl+'><img class="thumbnail img-responsive" width="150" height="150" src=' + avatarUrl + '></a>'
-    		html += '<div class="media-body text-left"><h4 class="media-heading" style="margin-bottom: 10px"><strong>Nome: </strong>'+name+'</h4><p><strong>Empresa: </strong>'+company+'</p><p><strong>Localidade: </strong>'+location+'</p><p><strong>E-mail: </strong>'+email+'</p><p><strong>Criado em: </strong>'+structuredCreatedAt+'</p><p><span class="btn btn-sm btn-primary">'+followers+' seguidores</span> <span class="btn btn-sm btn-primary">'+following+' seguindo</span></p></div></div></div></div></div></div>'
+    		html += '<div class="media-body text-left"><h4 class="media-heading"><strong>Nome: </strong>'+name+'</h4><p><strong>Empresa: </strong>'+company+'</p><p><strong>Localidade: </strong>'+location+'</p><p><strong>E-mail: </strong>'+email+'</p><p><strong>Criado em: </strong>'+structuredCreatedAt+'</p><p><span class="btn btn-sm btn-primary">'+followers+' seguidores</span> <span class="btn btn-sm btn-primary">'+following+' seguindo</span></p></div></div></div></div></div></div>'
 
     		$userData.html(html);
 
