@@ -34,13 +34,8 @@ h1 {
 	margin-top:7%;
 }
 
-.user-data .panel-heading {
- //padding: 0;
- //padding-left: 10px;
-}
-
 .user-data .btn-lnk {
-	margin-top:10pt;
+	margin-top: 2px;
 }
 
 .user-data .media-heading {
